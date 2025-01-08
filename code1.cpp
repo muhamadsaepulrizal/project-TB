@@ -118,10 +118,10 @@ void display() {
 
     // Gambar garis Kartesius jika diaktifkan
     if (showCartesius) {
-        glPushMatrix();
-        glTranslatef(0.0, -0.7, 0.0); // posisi keranjang
+//        glPushMatrix();
+//        glTranslatef(0.0, -0.7, 0.0); // posisi keranjang
         drawCartesius();
-        glPopMatrix();
+//        glPopMatrix();
 	}
 	
     // Objek (meja, keranjang, buah)
@@ -276,7 +276,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1280, 720);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("Keranjang dan Meja");
+    glutCreateWindow("Buah Buahan Kelompok 9");
 
     glewInit();
     initProjection();
