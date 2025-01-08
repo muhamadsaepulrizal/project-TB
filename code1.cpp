@@ -4,7 +4,7 @@
 #include <cmath>
 #include <cstdio>
 
-// Variabel tekstur
+// Variabel tekstur dan id tia teksturnya
 GLuint texture_Apel_ID, texture_Jeruk_ID, texture_Keranjang_ID;
 
 // Variabel rotasi global
@@ -276,7 +276,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(1280, 720);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("Buah Buahan Kelompok 9");
+    glutCreateWindow("Buah-Buahan Kelompok 9");
 
     glewInit();
     initProjection();
