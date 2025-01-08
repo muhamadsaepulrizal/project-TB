@@ -28,7 +28,7 @@ void createSphere(float radius) {
     gluSphere(sphere, radius, 100, 100);
 }
 
-// Fungsi untuk membuat keranjang
+// Fungsi membuat keranjang
 void createBasketWithHandle() {
     GLUquadric* quadric = gluNewQuadric();
     gluQuadricTexture(quadric, GL_TRUE);
@@ -56,7 +56,7 @@ void createTable() {
     glutSolidCube(1.0f);           // Meja berbentuk kubus
     glPopMatrix();
 
-    // Tambahkan kaki meja
+    // kaki-kaki meja
     glPushMatrix();
     glTranslatef(2.5f, -1.65f, 2.5f); // Kaki kanan depan
     glScalef(0.3f, 3.0f, 0.3f);
@@ -83,7 +83,7 @@ void createTable() {
 }
 
 void drawCartesius() {
-    glColor3f(0.0f, 0.0f, 0.0f); // Warna hitam untuk garis
+    glColor3f(0.0f, 0.0f, 0.0f); 
     glBegin(GL_LINES);
 
     // Sumbu X
@@ -101,6 +101,27 @@ void drawCartesius() {
     glEnd();
 }
 
+
+void draw_keranjang(){
+	glPushMatrix();
+    glTranslatef(0.0, -0.7, 0.0); // Posisi keranjang
+    glBindTexture(GL_TEXTURE_2D, texture_Keranjang_ID);
+    createBasketWithHandle();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-0.8, -1.8, 0.0); // Posisi apel
+    glBindTexture(GL_TEXTURE_2D, texture_Apel_ID);
+    createSphere(0.8);
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(0.8, -1.8, 0.0); // Posisi jeruk
+    glBindTexture(GL_TEXTURE_2D, texture_Jeruk_ID);
+    createSphere(0.8);
+    glPopMatrix();
+	
+}
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -124,31 +145,24 @@ void display() {
 //        glPopMatrix();
 	}
 	
+	glEnable(GL_LIGHTING); //hidupkan cahaya
+	
     // Objek (meja, keranjang, buah)
     glPushMatrix();
     glTranslatef(0.0f, -3.0f, 0.0f); // Posisi meja
     createTable();
     glPopMatrix();
 	
-	glEnable(GL_LIGHTING); //hidupkan cahaya
+	
 	
     glColor3f(1.0f, 1.0f, 1.0f);
     glPushMatrix();
-    glTranslatef(0.0, -0.7, 0.0); // Posisi keranjang
-    glBindTexture(GL_TEXTURE_2D, texture_Keranjang_ID);
-    createBasketWithHandle();
+    draw_keranjang();  
     glPopMatrix();
-
+    
     glPushMatrix();
-    glTranslatef(-0.8, -1.8, 0.0); // Posisi apel
-    glBindTexture(GL_TEXTURE_2D, texture_Apel_ID);
-    createSphere(0.8);
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(0.8, -1.8, 0.0); // Posisi jeruk
-    glBindTexture(GL_TEXTURE_2D, texture_Jeruk_ID);
-    createSphere(0.8);
+    glTranslatef(10.0f, 0.0f, 0.0f);
+    draw_keranjang();  
     glPopMatrix();
 
     glDisable(GL_LIGHTING); // nonaktifan cahaya
