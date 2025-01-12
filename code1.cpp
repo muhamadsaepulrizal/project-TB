@@ -103,6 +103,13 @@ void drawCartesius() {
 
 
 void draw_keranjang(){
+	
+	 // Objek (meja, keranjang, buah)
+    glPushMatrix();
+    glTranslatef(0.0f, -3.0f, 0.0f); // Posisi meja
+    createTable();
+    glPopMatrix();
+    
 	glPushMatrix();
     glTranslatef(0.0, -0.7, 0.0); // Posisi keranjang
     glBindTexture(GL_TEXTURE_2D, texture_Keranjang_ID);
@@ -139,32 +146,18 @@ void display() {
 
     // Gambar garis Kartesius jika diaktifkan
     if (showCartesius) {
-//        glPushMatrix();
-//        glTranslatef(0.0, -0.7, 0.0); // posisi keranjang
         drawCartesius();
-//        glPopMatrix();
 	}
 	
 	glEnable(GL_LIGHTING); //hidupkan cahaya
-	
-    // Objek (meja, keranjang, buah)
-    glPushMatrix();
-    glTranslatef(0.0f, -3.0f, 0.0f); // Posisi meja
-    createTable();
-    glPopMatrix();
-	
-	
 	
     glColor3f(1.0f, 1.0f, 1.0f);
     glPushMatrix();
     draw_keranjang();  
     glPopMatrix();
     
-    glPushMatrix();
-    glTranslatef(10.0f, 0.0f, 0.0f);
-    draw_keranjang();  
-    glPopMatrix();
-
+//    glTranslatef(10.0f, 0.0f, 0.0f);
+    
     glDisable(GL_LIGHTING); // nonaktifan cahaya
     glutSwapBuffers();
 }
@@ -268,9 +261,9 @@ void initProjection() {
 
     // Konfigurasi pencahayaan
     glEnable(GL_LIGHT0); // Aktifkan lampu sumber cahaya pertama
-    GLfloat lightAmbient[] = { 2.2f, 2.2f, 2.2f, 2.2f }; // Cahaya lingkungan (ambient)
-    GLfloat lightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f }; // Cahaya tersebar (diffuse)
-    GLfloat lightSpecular[] = { 1.0f, 1.0f, 1.0f, 2.0f }; // Cahaya spesular (highlight)
+    GLfloat lightAmbient[] = { 2.0f, 2.0f, 2.0f, 2.0f }; // Cahaya lingkungan (ambient)
+    GLfloat lightDiffuse[] = { 2.0f, 2.0f, 1.0f, 1.0f }; // Cahaya tersebar (diffuse)
+    GLfloat lightSpecular[] = { 2.0f, 1.0f, 1.0f, 2.0f }; // Cahaya spesular (highlight)
     GLfloat lightPosition[] = { 5.0f, 10.0f, 10.0f, 1.0f }; // Posisi sumber cahaya
 
     glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
