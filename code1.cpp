@@ -124,7 +124,7 @@ void draw_keranjang(){
 
     glPushMatrix();
     glTranslatef(0.8, -1.8, 0.0); // Posisi jeruk
-    glBindTexture(GL_TEXTURE_2D, texture_Jeruk_ID);
+    glBindTexture(GL_TEXTURE_2D, texture_Jeruk_ID); 
     createSphere(0.8);
     glPopMatrix();
 	
