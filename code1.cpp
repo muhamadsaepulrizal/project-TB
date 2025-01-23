@@ -81,7 +81,6 @@ void createTable() {
     glutSolidCube(1.0f);
     glPopMatrix();
 }
-
 void drawCartesius() {
     glColor3f(0.0f, 0.0f, 0.0f); 
     glBegin(GL_LINES);
